@@ -48,13 +48,17 @@ type GLTFResult = GLTF & {
   };
 };
 
-export default function Samurai(props: JSX.IntrinsicElements["group"]) {
+export default function SamuraiModel(props: JSX.IntrinsicElements["group"]) {
   const { nodes, materials } = useGLTF(
-    require("../assets/3d-assets/saumurai-small.glb")
+    require("../../assets/3d-assets/samurai-small.glb")
   ) as GLTFResult;
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 1.3]} scale={0.001}>
+      <group
+        rotation={[-Math.PI / 2, 0, 0.2]}
+        scale={0.0105}
+        position={[0, -15, 0]}
+      >
         <group position={[0, -0.361, 0]}>
           <mesh
             castShadow
@@ -217,4 +221,4 @@ export default function Samurai(props: JSX.IntrinsicElements["group"]) {
   );
 }
 
-useGLTF.preload(require("../assets/3d-assets/saumurai-small.glb"));
+useGLTF.preload(require("../../assets/3d-assets/samurai-small.glb"));
